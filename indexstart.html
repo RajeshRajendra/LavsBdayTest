@@ -30,8 +30,8 @@
 
 </head>
 
-<body>
-	<video id="myPopup1" class="video1" width="100%" controls>
+<body onload = startFunction()>
+	<video id="myPopup1" class="video1" width="100%" controls autoplay="autoplay">
 		 
 		<source src="video1.mp4" type="video/mp4" >
 	</video>
@@ -39,31 +39,33 @@
 </body>
 
 <style>
-	 .video1 {
-position:fixed;
-margin-top:32%;
-margin-left:-39%;
--moz-transform:scale(1) rotate(90deg);
-  -webkit-transform:scale(1) rotate(90deg);
-  -o-transform:scale(1) rotate(90deg);
-  -ms-transform:scale(1) rotate(90deg);
-  transform:scale(1) rotate(90deg); }
 
+body {
+  margin: 0; /* Because annoying default browser margins */
+}
+video {
+  position: absolute;
+  transform: rotate(90deg);
+
+  transform-origin: bottom left;
+  width: 100vh;
+  height: 100vw;
+  margin-top: -100vw;
+  object-fit: cover;
+
+  z-index: 4;
+  visibility: visible;
+}
 </style>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="effect.js"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-58229732-1', 'auto');
-  ga('send', 'pageview');
-
+function startFunction(){
+	var popup = document.getElementById("myPopup1");
+	popup.addEventListener('ended',function(){
+        location.href = 'index.html';
+    });
+	}
 </script>
 
 
