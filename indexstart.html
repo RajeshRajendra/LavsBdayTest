@@ -39,15 +39,24 @@
 </body>
 
 <style>
-	 .video1 {
-position:fixed;
-margin-top:32%;
-margin-left:-39%;
--moz-transform:scale(1) rotate(90deg);
-  -webkit-transform:scale(1) rotate(90deg);
-  -o-transform:scale(1) rotate(90deg);
-  -ms-transform:scale(1) rotate(90deg);
-  transform:scale(1) rotate(90deg); }
+
+	
+body {
+  margin: 0; /* Because annoying default browser margins */
+}
+video {
+  position: absolute;
+  transform: rotate(90deg);
+
+  transform-origin: bottom left;
+  width: 100vh;
+  height: 100vw;
+  margin-top: -100vw;
+  object-fit: cover;
+
+  z-index: 4;
+  visibility: visible;
+}
 
 </style>
 
